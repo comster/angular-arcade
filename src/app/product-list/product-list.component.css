@@ -1,7 +1,23 @@
-
-
 /*
 Copyright Google LLC. All Rights Reserved.
 Use of this source code is governed by an MIT-style license that
 can be found in the LICENSE file at https://angular.io/license
 */
+
+button.red {
+  background-color: #d21919;
+}
+
+.error {
+  color: #d21919;
+}
+
+.trxTokens {
+  text-align: right;
+  min-width: 80px;
+}
+
+.trxDesc {
+  min-width: 200px;
+  padding: 0 12px;
+}

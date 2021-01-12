@@ -1,8 +1,11 @@
 <a [routerLink]="['/']">
-  <h1>My Store</h1>
+  <h1>ACME Arcade</h1>
 </a>
 
-<a class="button fancy-button"><i class="material-icons">shopping_cart</i>Checkout</a>
+<button class="button fancy-button" disabled>
+  <i class="material-icons">account_balance</i>Balance {{ balanceValue | number
+  }}
+</button>
 
 <!-- 
 Copyright Google LLC. All Rights Reserved.

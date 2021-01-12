@@ -1,8 +1,48 @@
-<h2>Products</h2>
+<h2>Store</h2>
 
+<input #desc type="text" name="description" placeholder="Description" /> <br />
+<input #tokens type="number" name="tokens" value="" placeholder="0" />
+&nbsp;
+<button (click)="onClick('buy', desc, tokens)">Purchase Tokens</button>
+&nbsp;
+<button (click)="onClick('sell', desc, tokens)" class="red">
+  Spend Tokens
+</button>
 
-<!-- 
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at https://angular.io/license
--->
+<p class="error">
+  {{ errorMsg }}
+</p>
+
+<h2>Transactions</h2>
+
+<p *ngIf="transactions.length == 0">
+  No transactions.
+</p>
+
+<div *ngIf="transactions.length != 0">
+  <table>
+    <tr>
+      <th></th>
+      <th>Tokens</th>
+      <th>Description</th>
+      <th>Date</th>
+    </tr>
+
+    <tr *ngFor="let trx of transactions; index as i;">
+      <td>
+        <button *ngIf="trx.type == 'buy'" disabled>Purchased</button>
+        <button *ngIf="trx.type == 'sell'" disabled class="red">Sold</button>
+      </td>
+      <td class="trxTokens">
+        <span *ngIf="trx.type == 'sell'">-</span>
+        {{trx.tokens | number}}
+      </td>
+      <td class="trxDesc">
+        {{trx.description}}
+      </td>
+      <td>
+        {{trx.at | date}}
+      </td>
+    </tr>
+  </table>
+</div>
